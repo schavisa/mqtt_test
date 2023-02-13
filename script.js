@@ -23,30 +23,45 @@ $(function() {
 // Keep track of the existing markers
 var marker_array = new Array()
 
+// Define the cluster group
+var marker_group = L.markerClusterGroup();
+
 function showData(data){
     // Remove old markers
-    removeMarkers()
+    removeMarkers();
 
     for (let i = 0; i < data.features.length; i++) {
         if (data.features[i].properties.latitude != null && data.features[i].properties.longitude !=null) {
             // Marker
-            var marker = L.marker([data.features[i].properties.latitude, data.features[i].properties.longitude]).addTo(map); //geometry
+            var marker = L.marker([data.features[i].properties.latitude, data.features[i].properties.longitude]);
             marker_array.push(marker)
 
             // Pop-up
-            var text = "<b>Issued Date</b>: " + data.features[i].properties.issueddate + 
-                        "<br><b>Community Name</b>: " + data.features[i].properties.communityname + 
-                        "<br><b>Original Address</b>: " + data.features[i].properties.originaladdress + 
-                        "<br><b>Work Class Group</b>: " + data.features[i].properties.workclassgroup + 
+            var text = "<b>Issued Date: </b>" + data.features[i].properties.issueddate.slice(0, 10) + 
+                        "<br><b>Community Name: </b>" + data.features[i].properties.communityname + 
+                        "<br><b>Original Address: </b>" + data.features[i].properties.originaladdress + 
+                        "<br><b>Work Class Group: </b>" + data.features[i].properties.workclassgroup + 
                         "<br><b>Contractor Name: </b>"+ data.features[i].properties.contractorname;
-            marker.bindPopup(text);//.openPopup();
+            marker.bindPopup(text);
         }
     }
+    // Add markers to the map
+    addMarkerClusterGroup();
 }
 
 // Go through the existing markers and remove them
 function removeMarkers() {
+    map.removeLayer(marker_group);
     for(let i = 0; i < marker_array.length; i++) {
-        map.removeLayer(marker_array[i]);
+        marker_group.removeLayer(marker_array[i]);
     }
+    marker_array = new Array();
+}
+
+// Add markers to the cluster group
+function addMarkerClusterGroup() {
+    for (let i = 0; i < marker_array.length; i++) {
+        marker_group.addLayer(marker_array[i]);
+    }
+    map.addLayer(marker_group);
 }
