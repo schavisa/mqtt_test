@@ -10,7 +10,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Create the date picker and query the building permit api
 $(function() {
     $('input[name="daterange"]').daterangepicker({
-        opens: 'right'
+        opens: 'right',
+        maxDate: new Date()
     }, async (start, end, label) => {
         const response = await fetch("https://data.calgary.ca/resource/c2es-76ed.geojson?$where=issueddate >= '" + start.format('YYYY-MM-DD') + "' and issueddate <= '" + end.format('YYYY-MM-DD') + "'");
         const geojson = await response.json();
