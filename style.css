@@ -1,4 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: darkslategrey;
+}
+
+#header {
+    text-align: center;
+    width: 100%;
+    color: azure;
+}
+
+#search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#search p {
+    margin: 20px;
+    font-size: 16pt;
+}
+
+#search input {
+    height: 20px;
+    color: black !important;
+}
+
 #map {
-    height: 900px;
+    height: 890px;
     width: 100%;
 }
