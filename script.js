@@ -16,7 +16,6 @@ $(function() {
         const geojson = await response.json();
         // Show matching results
         showData(geojson);
-        
     });
 });
 
