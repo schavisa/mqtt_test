@@ -7,6 +7,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+// Create the date picker and query the building permit api
 $(function() {
     $('input[name="daterange"]').daterangepicker({
         opens: 'right'
