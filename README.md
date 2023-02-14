@@ -1,4 +1,4 @@
-# Bookshelf V2
+# City of Calgary Building Permit Viewer
 
 ENGO 651 - Adv. Topics on Geospatial Technologies - Project 3
 
