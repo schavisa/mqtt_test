@@ -34,7 +34,7 @@ function showData(data){
         if (data.features[i].properties.latitude != null && data.features[i].properties.longitude !=null) {
             // Marker
             var marker = L.marker([data.features[i].properties.latitude, data.features[i].properties.longitude]);
-            marker_array.push(marker)
+            marker_array.push(marker);
 
             // Pop-up
             var text = "<b>Issued Date: </b>" + data.features[i].properties.issueddate.slice(0, 10) + 
