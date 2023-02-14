@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Courier New', Courier, monospace;
     background-color: #040836;
 }
 
@@ -26,12 +26,6 @@ body {
 }
 
 #map {
-    height: 890px;
+    height: calc(100vh - 155px);
     width: 100%;
-}
-
-@media only screen and (max-width: 800px) {
-    #map {
-        height: 600px;
-    }
 }
