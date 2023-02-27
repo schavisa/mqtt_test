@@ -1,5 +1,5 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     background-color: #040836;
 }
 
@@ -18,6 +18,12 @@ body {
 #search p {
     margin: 20px;
     font-size: 16pt;
+}
+
+#search button {
+    margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12pt;
 }
 
 #search input {

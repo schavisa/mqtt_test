@@ -1,6 +1,6 @@
 # City of Calgary Building Permit Viewer
 
-ENGO 651 - Adv. Topics on Geospatial Technologies - Project 3
+ENGO 651 - Adv. Topics on Geospatial Technologies - Projects 3 & 4
 
 By Chavisa and Adam
 

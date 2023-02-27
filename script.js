@@ -1,11 +1,28 @@
-// Define the map centered on Calgary
-var map = L.map('map').setView([51.039439, -114.054339], 11);
-
 // Add the basemap
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var default_map = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+});
+
+// Add the Mapbox style
+L.mapbox.accessToken = 'pk.eyJ1IjoiYXJzbWl0aCIsImEiOiJja2tsYmFlenMwamUwMm9sc2hmYng5bDJoIn0.g5KpRpg0jDycvXHqlX8OPw';
+var mapbox_map = L.mapbox.styleLayer('mapbox://styles/arsmith/clen9o9ks000101mmj8tcfsz0');
+
+var baseMaps = {
+    "OpenStreetMap": default_map,
+    "2017 Traffic Incidents": mapbox_map
+};
+
+// Create the map centered on Calgary
+var map = L.map('map', {
+    center: [51.039439, -114.054339],
+    zoom: 11,
+    // layers: [default_map, mapbox_map]
+});
+
+// Define the map centered on Calgary
+var layerControl = L.control.layers(baseMaps).addTo(map);
+default_map.addTo(map);
 
 // Create the date picker and query the building permit api
 $(function() {
@@ -65,3 +82,6 @@ function addMarkerClusterGroup() {
     }
     map.addLayer(marker_group);
 }
+
+// Handle button click to clear markers
+document.getElementById("clear-content-button").addEventListener("click", removeMarkers);
