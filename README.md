@@ -1,4 +1,4 @@
-# City of Calgary Building Permit Viewer
+# City of Calgary Building Permit and Traffic Incident Viewer
 
 ENGO 651 - Adv. Topics on Geospatial Technologies - Projects 3 & 4
 
