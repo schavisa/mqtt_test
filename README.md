@@ -6,9 +6,11 @@ By Chavisa and Adam
 
 ## Description
 
-In this project, we implement a simple web app for users to view building permits issued by the City of Calgary.
+In project 3, we implement a simple web app for users to view building permits issued by the City of Calgary.  In project 4, we extend the functionality of the app to display a style layer created with [Mapbox](https://www.mapbox.com).
 
-![alt application example](./BP_app_sample.png)
+![alt building permit application example](./BP_sample.png)
+---
+![alt traffic incidents application example](./TI_sample.png)
 
 At the top of the page, we use a widget from [daterangepicker.com](https://www.daterangepicker.com) to allow the user to select start and end dates and view up to 1000 building permits issued within that date range. The results are displayed as markers on the main [Leaflet](https://leafletjs.com) map.  When a marker is clicked, a popup displays additional information about the particular building permit.  To ensure the map doesn't get too crowded with markers, we utilize the [Marker Cluster](https://github.com/Leaflet/Leaflet.markercluster) plugin to group nearby markers into clusters which dynamically update when they are clicked or when the user zooms on the map.  This plugin also allows us to spiderfy markers which have the same location so that they can be differentiated.
 
