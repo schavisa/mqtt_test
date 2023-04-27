@@ -107,7 +107,6 @@
 
         }
         function pub_status(){
-            let gyroscope = new Gyroscope({ frequency: 60 });
 
             if(connected_flag==0){
                 out_msg="<b>Not Connected so can't send</b>"
@@ -117,16 +116,16 @@
           
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(createGeoJSON);
-
+                let gyroscope = new Gyroscope({ frequency: 60 });
                 gyroscope.addEventListener("reading", (e) => {
-                // console.log(`Angular velocity along the X-axis ${gyroscope.x}`);
-                // console.log(`Angular velocity along the Y-axis ${gyroscope.y}`);
-                // console.log(`Angular velocity along the Z-axis ${gyroscope.z}`);
+                console.log(`Angular velocity along the X-axis ${gyroscope.x}`);
+                console.log(`Angular velocity along the Y-axis ${gyroscope.y}`);
+                console.log(`Angular velocity along the Z-axis ${gyroscope.z}`);
+                });
+                gyroscope.start();
                 send_message("X gyroscope data", gyroscope.x);
                 send_message("Y gyroscope data", gyroscope.y);
                 send_message("Z gyroscope data", gyroscope.z);
-                });
-                gyroscope.start();
 
             } else { 
                 document.getElementById("message").innerHTML = "Geolocation is not supported by this browser.";
