@@ -87,7 +87,6 @@
             message.destinationName = topic;
 
             mqtt.send(message);
-            display_msg(topic, value);
             
             return false;
         }
@@ -154,7 +153,7 @@
             send_message(topic_localtion, value_location);
             send_message(topic_temp, value_temp);
 
-            display_msg("", "");
+            display_msg(topic, value);
 
             createMarker(status);
         }
