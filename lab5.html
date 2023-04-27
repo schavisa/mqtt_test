@@ -87,7 +87,7 @@
             message.destinationName = topic;
 
             mqtt.send(message);
-
+            display_msg(topic, value);
             
             return false;
         }
